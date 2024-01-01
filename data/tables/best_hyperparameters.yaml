@@ -1,0 +1,29 @@
+# 26/300 iterations complete ✅ (184171.56s)
+# Results saved to NFTObjDetect/tune4
+# Best fitness=0.3194 observed at iteration 15
+# Best fitness metrics are {'metrics/precision(B)': 0.49398, 'metrics/recall(B)': 0.48754, 'metrics/mAP50(B)': 0.4649, 'metrics/mAP50-95(B)': 0.30323, 'val/box_loss': 0.39379, 'val/cls_loss': 0.9709, 'val/dfl_loss': 0.78388, 'fitness': 0.3194}
+# Best fitness model is NFTObjDetect/NFTObjDetectTune18
+# Best fitness hyperparameters are printed below.
+
+lr0: 0.01199
+lrf: 0.00782
+momentum: 0.92982
+weight_decay: 0.00054
+warmup_epochs: 3.80774
+warmup_momentum: 0.76808
+box: 6.34961
+cls: 0.54891
+dfl: 1.86418
+hsv_h: 0.01368
+hsv_s: 0.7237
+hsv_v: 0.42148
+degrees: 0.0
+translate: 0.07893
+scale: 0.48311
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.54781
+mosaic: 0.87396
+mixup: 0.0
+copy_paste: 0.0

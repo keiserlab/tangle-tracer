@@ -1,0 +1,41 @@
+program: train.py
+name: 'Sweep1'
+method: bayes
+metric:
+  name: valid_loss
+  goal: minimize
+
+parameters:
+  lr:
+    values: [1e-8, 1e-7, 1e-6, 1e-5, 1e-4]
+  optim:
+    values: ["adamw", "sgd"]
+  weight_decay: 
+    values: [0.1, 0.01, 0.001, 0.0001, 0.00001]
+  momentum: 
+    values: [0.0, 0.1, 0.5, 0.9]
+  loss_fn:
+    values: ["tversky"]
+  alpha:
+    distribution: uniform
+    min: 0.1
+    max: 0.9
+      # gamma:
+        # distribution: uniform
+
+
+#static params
+  max_epochs: 
+    value: 150
+  # devices: 
+    # value: [0, 1]
+  num_workers:
+    value: 20
+  batch_size: 
+    value: 8
+    
+#early termination
+early_terminate:
+  type: hyperband
+  eta: 3
+  min_iter: 4

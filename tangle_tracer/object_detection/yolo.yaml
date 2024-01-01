@@ -1,0 +1,10 @@
+#Root directory, train and val are relative to this
+path: /scratch/sghandian/nft/yolo_input
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+train: train/images/
+val: val/images/
+test: test/images/
+
+#Classes
+names:
+  0: NFT
