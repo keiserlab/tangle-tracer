@@ -10,6 +10,10 @@ Refer to the docstring at the bottom of each script to see an example of how to 
 
 If you encounter any issues or have any questions, feel free to open a [GitHub issue](https://github.com/keiserlab/tangle-tracer/issues) and we will do our best to address it.
 
+## Installation
+1. Run `conda create --name tangle_tracer_env python=3.9.7 pytorch=1.12.0 torchvision=0.13.0 cudatoolkit=11.3` to create the environment with a viable python/pytorch version.
+2. Run `pip install -r REQUIREMENTS.txt`
+
 ## Preprocessing
 1. Download WSIs (.czi) and Annotation Metadata (.cz) to local file system (ideally NVMe drive for fastest read/write) and convert to Zarr arrays at full resolution (0.11 microns/px). See an example of these files in `tangle-tracer/data/wsis/czi/` and `tangle-tracer/data/annotations/czi/`.
     - Convert WSIs to Zarr files with `annot_conversion.czi_to_zarr.py`.
