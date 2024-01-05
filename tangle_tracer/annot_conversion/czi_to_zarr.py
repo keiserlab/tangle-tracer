@@ -71,6 +71,7 @@ def save_to_zarr(filepaths, output_dir, scale = 1.0, chunks = (5000, 5000)):
     
     #change output_dir depending on input scale
     output_dir = Path(output_dir, f"scale_{scale}/")
+    os.makedirs(output_dir, exist_ok=True)
 
     pbar = tqdm(total=len(filepaths), desc = 'Converting czi to zarr')
     
