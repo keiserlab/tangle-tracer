@@ -13,6 +13,7 @@ If you encounter any issues or have any questions, feel free to open a [GitHub i
 ## Installation
 1. Run `conda create --name tangle_tracer_env python=3.9.7 pytorch=1.12.0 torchvision=0.13.0 cudatoolkit=11.3` to create the environment with a viable python/pytorch version.
 2. Run `pip install -r REQUIREMENTS.txt`
+3. Run `python setup.py build | python setup.py install` to allow for the internal import structure to work as intended.
 
 ## Preprocessing
 1. Download WSIs (.czi) and Annotation Metadata (.cz) to local file system (ideally NVMe drive for fastest read/write) and convert to Zarr arrays at full resolution (0.11 microns/px). See an example of these files in `tangle-tracer/data/wsis/czi/` and `tangle-tracer/data/annotations/czi/`.
