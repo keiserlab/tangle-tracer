@@ -18,3 +18,4 @@ torchmetrics==0.11.4
 pytorch-lightning==1.7.7
 histomicstk
 ultralytics
+imagecodecs
