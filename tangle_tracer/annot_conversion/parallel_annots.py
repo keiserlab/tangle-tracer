@@ -23,7 +23,7 @@ def dask_agg_annots(zarr_path, cz_path, scale = 1.0, save = True):
         #     continue
         imgPath = Path(zarr_path, file)
         annotPath = Path(cz_path, Path(file).with_suffix('.cz'))
-        if not annotPath.isfile():#skip batch2 which has no .cz files
+        if not annotPath.is_file():#skip batch2 which has no .cz files
             continue
         wsiAnnot = dask.delayed(WSIAnnotation)(imgPath, annotPath, scale, save = save, 
                                                save_path = args.save_dir)
