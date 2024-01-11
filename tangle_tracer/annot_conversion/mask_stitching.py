@@ -132,7 +132,7 @@ def produce_masks(wsiAnnot_path, save_path, scale = 1.0, overwrite = True):
     return None
 
         
-def agg_masks(mask_function, wsiAnnot_path, save_path, scale = 1.0, overwrite = True):
+def agg_masks_dask(mask_function, wsiAnnot_path, save_path, scale = 1.0, overwrite = True):
     annot_list = os.listdir(wsiAnnot_path)
     lazy_results = []
     
@@ -143,6 +143,12 @@ def agg_masks(mask_function, wsiAnnot_path, save_path, scale = 1.0, overwrite = 
                                 Path(wsiAnnot_path, annot), save_path, 
                                 scale = scale, overwrite = overwrite))
     return lazy_results
+
+def agg_masks(mask_function, wsiAnnot_path, save_path, scale = 1.0, overwrite = True):
+    annot_list = os.listdir(wsiAnnot_path)
+    for annot in annot_list:
+        mask_function(Path(wsiAnnot_path, annot), save_path, scale = scale, overwrite = overwrite)
+    return True
 
 
 def main(args):
@@ -161,12 +167,13 @@ def main(args):
     SAVE_PATH = Path(DATA_DIR, 'masks')
     os.makedirs(SAVE_PATH, exist_ok=True)
 
-    with Client(threads_per_worker=args.threads_per_worker, n_workers=args.num_workers,
-                silence_logs=50, memory_target_fraction = 0.8) as client:
-        mask_function = produce_masks
-        lazy_masks = agg_masks(mask_function, WSI_ANNOT_PATH, SAVE_PATH, overwrite = True)
-        dask.compute(lazy_masks, scheduler='distributed')
-    return None
+    if args.num_workers <= 1:
+        agg_masks(produce_masks, WSI_ANNOT_PATH, SAVE_PATH, overwrite = True)
+    else:
+        with Client(threads_per_worker=args.threads_per_worker, n_workers=args.num_workers,
+                    silence_logs=50, memory_target_fraction = 0.8) as client:
+            lazy_masks = agg_masks_dask(produce_masks, WSI_ANNOT_PATH, SAVE_PATH, overwrite = True)
+            dask.compute(lazy_masks, scheduler='distributed')
 
 
 if __name__ == '__main__':
