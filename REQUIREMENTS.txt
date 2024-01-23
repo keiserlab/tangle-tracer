@@ -16,6 +16,7 @@ scikit-learn
 segmentation-models-pytorch
 torchmetrics==0.11.4
 pytorch-lightning==1.7.7
-histomicstk
 ultralytics
 imagecodecs
+histomicstk 
+--find-links https://girder.github.io/large_image_wheels

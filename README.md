@@ -17,7 +17,7 @@ If you encounter any issues or have any questions, feel free to open a [GitHub i
 
 ## Preprocessing
 1. Download WSIs (.czi) and Annotation Metadata (.cz) to local file system (ideally NVMe drive for fastest read/write) and convert to Zarr arrays at full resolution (0.11 microns/px). See an example of these files in `tangle-tracer/data/wsis/czi/` and `tangle-tracer/data/annotations/czi/`.
-    - Convert WSIs to Zarr files with `annot_conversion.czi_to_zarr.py`.
+    - Convert WSIs to Zarr files with `annot_conversion/czi_to_zarr.py`.
 2. (Optional) Create a parser for annotations and metadata. This step requires the most effort on the users' end.
     - Add parser to `WSIAnnotation.py` and **test** `WSIAnnotation` creation.
     - You can display the result of the point-to-mask procedure by calling `WSIAnnotation.plot_bboxes()` on a single `WSIAnnotation()`.
