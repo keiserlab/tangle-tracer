@@ -1,6 +1,6 @@
 # Automated detection of neurofibrillary tangles in digitized whole slide images using deep learning
 
-Welcome to the tangle-tracer repository! This repo is associated with the study [Ghandian et al. 2024](place-holder-url). The repo offers a few key utilities:
+Welcome to the tangle-tracer repository! This repo is associated with the study [Ghandian et al. 2024](https://doi.org/10.1101/2024.05.15.594372). The repo offers a few key utilities:
  - Reproducibility of the above study
  - A pipeline to transform point annotations done on AT8-stained WSIs to segmentation ground truth masks
  - UNet model weights which can be fine-tuned to segment neurofibrillary tangles (NFTs) in novel whole slide pathology images (WSIs)
