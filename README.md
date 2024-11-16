@@ -62,6 +62,3 @@ If you encounter any issues or have any questions, feel free to open a [GitHub i
 1. Run `scoring/calc_tissue_area.py` to calculate tissue pixel areas using histomicsTK.
 2. Run `scoring/count_nfts.py` to count NFTs on a set of WSI-level segmentations. This is essentially a low-resolution blob detection done via cv2.
 3. Run `scoring/count_bboxes.py` to parse the output .txt files from a WSI-level object detection inference procedure (i.e., outputs from running `object_detection/wsi_inference_yolo.py`).
-
-## Figures (work-in-progress; unsure how to organize this within the repo)
-1. Run `figures/CERAD-like_score_correlation.ipynb` to aggregate the results of all the above files into a single table and generate the figures included in the manuscript.
