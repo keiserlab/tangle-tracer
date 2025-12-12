@@ -1,0 +1,7 @@
+#Best hyperparameters for UNet segmentation model with ResNet50 encoder
+lr: 1e-5
+optim: adamw
+weight_decay: 0.01
+momentum: 0.1
+loss_func: tversky
+alpha: 0.299
